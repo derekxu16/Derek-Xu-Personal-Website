@@ -17,9 +17,10 @@ export default class Resume extends React.Component {
         {
           sectionName : 'Skills',
           entries : [
-            ['React', 'Have worked with React, React Native and Redux'],
+            ['React and Javascript', 'Have worked with React, React Native and Redux'],
             ['C++', 'Have created a few projects in C++ and mainly use C++ in programming contests'],
             ['Java', 'Have created an Android App with Java for musicians. It has received over 1000 downloads on the Play Store'],
+            ['Python', 'Use Python frequently for competitive programming. I have experience with Flask and REST APIs'],
           ]
         },
         {
@@ -29,6 +30,7 @@ export default class Resume extends React.Component {
             ['2017 ECOO Eastern Ontario Champions', ''],
             ['2017 ECOO OCDSB Boardwide Champions', ''],
             ['Grade 12 Computer Science (ICS4U) Subject Award', 'Colonel By Secondary School highest ICS4U grade'],
+            ['Grades 9-12 OCDSB Silver Medal', 'Mainted an average of at least 90 during all four years of high school'],
           ]
         },
         {

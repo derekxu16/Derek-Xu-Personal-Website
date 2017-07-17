@@ -2,9 +2,10 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
 import Helmet from "react-helmet"
-import { Menu, Container } from 'semantic-ui-react'
+import { Menu, Container, Icon } from 'semantic-ui-react'
 
 import "../css/typography.css"
+//import '../semantic/dist/semantic.min.css';
 
 export default class Template extends React.Component {
   static propTypes = {
@@ -30,12 +31,23 @@ class Navbar extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu color='blue'>
-        <Menu.Item header as={Link} to="/">Derek Xu</Menu.Item>
-        <Menu.Item as={Link} to="/resume" name='Resume' active={activeItem === 'resume'} onClick={this.handleItemClick} />
-        <Menu.Item as={Link} to="/about" name='About' active={activeItem === 'about'} onClick={this.handleItemClick} />
-        <Menu.Item as={Link} to="/music" name='Music' active={activeItem === 'music'} onClick={this.handleItemClick} />
+      <div style={{marginBottom: 60}}>
+      <Menu color='blue' fixed='top' inverted>
+        <Menu.Item header as={Link} to="/" onClick={this.handleItemClick}>Derek Xu</Menu.Item>
+        <Menu.Item as={Link} to="/resume" name='resume' active={activeItem === 'resume'} onClick={this.handleItemClick}>
+          <Icon name='file text' />
+          Resume
+        </Menu.Item>
+        <Menu.Item as={Link} to="/about" name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
+          <Icon name='user circle outline' />
+          About
+        </Menu.Item>
+        <Menu.Item as={Link} to="/music" name='music' active={activeItem === 'music'} onClick={this.handleItemClick}>
+          <Icon name='music' />
+          Music
+        </Menu.Item>
       </Menu>
+      </div>
     )
   }
 }
