@@ -1,13 +1,14 @@
 import React, { Component } from "react"
 import Link from "gatsby-link"
 import Helmet from "react-helmet"
-import { Container, Header, Divider, List } from 'semantic-ui-react'
+import { Container, Header, Divider, List, Grid, Segment } from 'semantic-ui-react'
 
 export default class Resume extends React.Component {
   componentWillMount() {
     this.setState({
       sections : [
         {
+          color: "blue",
           sectionName: 'Education',
           entries : [
             ['University of Waterloo', 'Software Engineering 1A Undergraduate Candidate'],
@@ -17,8 +18,9 @@ export default class Resume extends React.Component {
         {
           sectionName : 'Skills',
           entries : [
+            ['HTML and CSS', 'I enjoy creating websites and web applications'],
             ['React and Javascript', 'Have worked with React, React Native and Redux'],
-            ['C++', 'Have created a few projects in C++ and mainly use C++ in programming contests'],
+            ['C++', 'Have created a few projects in C++ and use C++ primarily in programming contests'],
             ['Java', 'Have created an Android App with Java for musicians. It has received over 1000 downloads on the Play Store'],
             ['Python', 'Use Python frequently for competitive programming. I have experience with Flask and REST APIs'],
           ]
@@ -38,22 +40,34 @@ export default class Resume extends React.Component {
           entries : [
             ['Gap Factory Tanger Kanata', 'Cashier and Sales Associate from August 2016 to July 2017'],
           ]
-        }
+        },
       ]
     })
   }
   render() {
     return (
-      <Container text>
-        <Header as='h2'>
-          Resume
-        </Header>
-        <div>
-          {this.state.sections.map(sect => {
-            return <Section name={sect.sectionName} entries={sect.entries} />
+      <div>
+        <Header as='h2'>Resume</Header>
+        <Grid stackable divided='vertically'>
+          { /* <Grid.Row centered columns={2}>
+            <Grid.Column width={8}>
+              <Section name={this.state.sections[0].sectionName} entries={this.state.sections[0].entries} bg=''/>
+            </Grid.Column>
+            <Grid.Column width={4}>
+              <Section name={this.state.sections[1].sectionName} entries={this.state.sections[1].entries}/>
+            </Grid.Column>
+          </Grid.Row> */}
+          {this.state.sections.map((sect, i) => {
+            return (
+              <Grid.Row centered>
+                <Grid.Column>
+                  <Section name={sect.sectionName} entries={sect.entries} />
+                </Grid.Column>
+              </Grid.Row>
+            )
           })}
-        </div>
-      </Container>
+        </Grid>
+      </div>
     )
   }
 }
@@ -62,17 +76,16 @@ class Section extends Component {
   render() {
     //Displays one section of the resume
     return (
-      <Container text>
-        <Header as='h3'> {this.props.name} </Header>
-        <List>
-          {this.props.entries.map(item => {
-            return (
-              <ListItem title={item[0]} text={item[1]} />
-            )
-          })}
-        </List>
-        <Divider />
-      </Container>
+        <Container style={{backgroundColor:this.props.bg}}>
+          <Header as='h3'> {this.props.name} </Header>
+          <List>
+            {this.props.entries.map(item => {
+              return (
+                <ListItem title={item[0]} text={item[1]} />
+              )
+            })}
+          </List>
+        </Container>
     )
   }
 }
@@ -85,7 +98,7 @@ class ListItem extends Component {
         <List.Header as='h4'>
           {this.props.title}
         </List.Header>
-        <p style={{fontSize:16}}> {this.props.text} </p>
+        <p> {this.props.text} </p>
       </div>
       </List.Item>
     )

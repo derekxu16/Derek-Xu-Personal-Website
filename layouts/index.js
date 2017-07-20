@@ -4,7 +4,6 @@ import Link from "gatsby-link"
 import Helmet from "react-helmet"
 import { Menu, Container, Icon } from 'semantic-ui-react'
 
-import "../css/typography.css"
 //import '../semantic/dist/semantic.min.css';
 
 export default class Template extends React.Component {
@@ -38,13 +37,17 @@ class Navbar extends Component {
           <Icon name='file text' />
           Resume
         </Menu.Item>
-        <Menu.Item as={Link} to="/about" name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
-          <Icon name='user circle outline' />
-          About
+        <Menu.Item as={Link} to="/projects" name='projects' active={activeItem === 'projects'} onClick={this.handleItemClick}>
+          <Icon name='wrench' />
+          Projects
         </Menu.Item>
         <Menu.Item as={Link} to="/music" name='music' active={activeItem === 'music'} onClick={this.handleItemClick}>
           <Icon name='music' />
           Music
+        </Menu.Item>
+        <Menu.Item as={Link} to="/about" name='about' active={activeItem === 'about'} onClick={this.handleItemClick}>
+          <Icon name='user circle outline' />
+          About
         </Menu.Item>
       </Menu>
       </div>
