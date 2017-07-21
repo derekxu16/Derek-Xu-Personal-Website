@@ -12,9 +12,9 @@ export default class Template extends React.Component {
   }
   render() {
     return (
-        <Grid>
-          <Grid.Row only='mobile' stretched>
-            <Grid.Column>
+        <Grid style={{width:'100%'}}>
+          <Grid.Row only='mobile' centered>
+            <Grid.Column style={{padding:0}}>
               <SidebarMobile pages={this.props.children}/>
             </Grid.Column>
           </Grid.Row>
@@ -74,7 +74,6 @@ class SidebarMobile extends Component {
     const { visible, activeItem } = this.state
     return (
       <div>
-        <Grid.Row>
         <Menu fixed='top'>
           <Menu.Item onClick={this.toggleVisibility}>
             <Icon name='sidebar' />
@@ -83,8 +82,6 @@ class SidebarMobile extends Component {
             Derek Xu
           </Menu.Item>
         </Menu>
-        </Grid.Row>
-        <Grid.Column stretched>
         <Sidebar.Pushable style={{marginTop:40}}>
           <Sidebar as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Menu.Item header as={Link} to="/" onClick={this.handleItemClick}>
@@ -114,7 +111,6 @@ class SidebarMobile extends Component {
               </Container>
             </Sidebar.Pusher>
         </Sidebar.Pushable>
-        </Grid.Column>
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Container } from 'semantic-ui-react'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -37,6 +38,7 @@ export default class HTML extends React.Component {
           <div
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
+            style={{display:'flex', justifyContent:'center'}}
           />
           {this.props.postBodyComponents}
         </body>
