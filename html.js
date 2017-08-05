@@ -24,8 +24,12 @@ export default class HTML extends React.Component {
     return (
       <html lang="en">
         <head>
+          <title>Derek Xu</title>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="author" content="Derek Xu" />
+          <meta name="description" content="Derek Xu - Software Engineering student at uWaterloo" />
+          <meta name="keywords" content="Derek, Xu, Software, Engineer, Waterloo, Music, Developer" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
