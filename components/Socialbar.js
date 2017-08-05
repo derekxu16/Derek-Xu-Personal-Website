@@ -1,4 +1,4 @@
-import { Grid, Icon, Button } from 'semantic-ui-react'
+import { Grid, Icon, Button, Container } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
 export default class Socialbar extends Component {
@@ -34,11 +34,23 @@ export default class Socialbar extends Component {
     }
     render() {
         return (
+        //Necessary right now in Semantic to make 2 separate cases for mobile/computer
             <Grid>
-                <Grid.Row centered columns={this.state.links.length}>
+                <Grid.Row centered only='mobile' columns={this.state.links.length}>
                     {this.state.links.map((item, i) => {
                         return (
-                            <Grid.Column textAlign='center' tablet={1} computer={1} mobile={2}>
+                            <Grid.Column textAlign='center'>
+                                <Button as='a' icon href={item.link} circular color='black'>
+                                    <Icon name={item.name} size='large' color='white' />
+                                </Button>
+                            </Grid.Column>
+                        )
+                    })}
+                </Grid.Row>
+                <Grid.Row centered only='computer tablet' columns={this.state.links.length + 4}>
+                    {this.state.links.map((item, i) => {
+                        return (
+                            <Grid.Column textAlign='center'>
                                 <Button as='a' icon href={item.link} circular color='black'>
                                     <Icon name={item.name} size='large' color='white' />
                                 </Button>
