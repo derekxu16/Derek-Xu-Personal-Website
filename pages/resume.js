@@ -19,7 +19,7 @@ export default class Resume extends React.Component {
           sectionName : 'Skills',
           entries : [
             ['HTML and CSS', 'I enjoy creating websites and web applications'],
-            ['React and Javascript', 'Have worked with React, React Native and Redux'],
+            ['React and Javascript', 'Have worked with React, React Native, Redux and jQuery'],
             ['C++', 'Have created a few projects in C++ and use C++ primarily in programming contests'],
             ['Java', 'Have created an Android App with Java for musicians. It has received over 1000 downloads on the Play Store'],
             ['Python', 'Use Python frequently for competitive programming. I have experience with Flask and REST APIs'],
