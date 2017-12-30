@@ -1,26 +1,27 @@
 import React from "react"
 import Link from "gatsby-link"
 import Helmet from "react-helmet"
-import { Grid, Header, Image } from 'semantic-ui-react'
-import mePic from '../images/good2.png'
+import { Grid, Header, Image, Container } from 'semantic-ui-react'
+import mePic from '../resources/good2.png'
 import Socialbar from '../components/Socialbar'
 
 export default class Index extends React.Component {
   render() {
     return (
-      <div>
-        <Grid>
+      <div style={{background:'linear-gradient(to bottom right, orange, blue)', paddingTop:'8vh', height:'100%', width:'100%'}}>
+        <Grid style={{marginTop:0, fontSize:'2rem'}}>
           <Grid.Row columns={1} centered>
-            <Grid.Column width={12}>
-              <Header as='h2'>
-                Welcome!
+              <Header size='large' style={{color:'white',}}>
+                Hi, I'm Derek!
               </Header>
-              <p style={{fontSize:16}}> Hi! I'm Derek, a 17 year old Software Engineering student at the University of Waterloo. I love to code and learn about coding. I enjoy making projects such as games, webistes and apps and I am especially fond of competitive programming! </p>
-              <Image src={mePic} width={350} centered shape='circular' style={{marginTop:40}}/>
+          </Grid.Row>
+          <Grid.Row centered columns={1}>
+            <Grid.Column className='textbox' style={{color:'white',}}>
+              <p> I'm an 18 year old Software Engineering student at the University of Waterloo. I love to code and learn about coding. I enjoy making webistes, apps and games and I am also extremely fond of competitive programming! </p>
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row columns={1} centered style={{marginTop:10}}>
-            <Grid.Column> <Socialbar /> </Grid.Column>
+          <Grid.Row>
+            <Image src={mePic} height='350' centered/>
           </Grid.Row>
         </Grid>
       </div>

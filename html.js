@@ -36,13 +36,13 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
           {css}
-          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"></link>
+          <link href="https://fonts.googleapis.com/css?family=Dosis|Nunito|Quicksand" rel="stylesheet" /> 
         </head>
-        <body>
+        <body style={{minHeight:'100%', height:'100%'}}>
           <div
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
-            style={{display:'flex', justifyContent:'center'}}
+            style={{display:'flex', justifyContent:'center', height:'100%'}}
           />
           {this.props.postBodyComponents}
         </body>

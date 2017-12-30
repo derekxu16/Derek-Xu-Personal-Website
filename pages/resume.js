@@ -1,106 +1,56 @@
 import React, { Component } from "react"
+import { Button, Dimmer, List, Header, Icon } from 'semantic-ui-react'
 import Link from "gatsby-link"
+import { withPrefix } from 'gatsby-link'
 import Helmet from "react-helmet"
-import { Container, Header, Divider, List, Grid, Segment } from 'semantic-ui-react'
 
 export default class Resume extends React.Component {
-  componentWillMount() {
-    this.setState({
-      sections : [
-        {
-          color: "blue",
-          sectionName: 'Education',
-          entries : [
-            ['University of Waterloo', 'Software Engineering 1A Undergraduate Candidate'],
-            ['Colonel By Secondary School', 'Completed International Baccalaureate Diploma with a score of 39'],
-          ]
-        },
-        {
-          sectionName : 'Skills',
-          entries : [
-            ['HTML and CSS', 'I enjoy creating websites and web applications'],
-            ['React and Javascript', 'Have worked with React, React Native, Redux and jQuery'],
-            ['C++', 'Have created a few projects in C++ and use C++ primarily in programming contests'],
-            ['Java', 'Have created an Android App with Java for musicians. It has received over 1000 downloads on the Play Store'],
-            ['Python', 'Use Python frequently for competitive programming. I have experience with Flask and REST APIs'],
-          ]
-        },
-        {
-          sectionName : 'Awards',
-          entries : [
-            ['2017 ECOO Finals 9th Place', ''],
-            ['2017 ECOO Eastern Ontario Champions', ''],
-            ['2017 ECOO OCDSB Boardwide Champions', ''],
-            ['Grade 12 Computer Science (ICS4U) Subject Award', 'Colonel By Secondary School highest ICS4U grade'],
-            ['Grades 9-12 OCDSB Silver Medal', 'Mainted an average of at least 90 during all four years of high school'],
-          ]
-        },
-        {
-          sectionName : 'Work Experience',
-          entries : [
-            ['Gap Factory Tanger Kanata', 'Cashier and Sales Associate from August 2016 to July 2017'],
-          ]
-        },
-      ]
-    })
-  }
   render() {
     return (
-      <div>
-        <Header as='h2'>Resume</Header>
-        <Grid stackable divided='vertically'>
-          { /* <Grid.Row centered columns={2}>
-            <Grid.Column width={8}>
-              <Section name={this.state.sections[0].sectionName} entries={this.state.sections[0].entries} bg=''/>
-            </Grid.Column>
-            <Grid.Column width={4}>
-              <Section name={this.state.sections[1].sectionName} entries={this.state.sections[1].entries}/>
-            </Grid.Column>
-          </Grid.Row> */}
-          {this.state.sections.map((sect, i) => {
-            return (
-              <Grid.Row centered>
-                <Grid.Column>
-                  <Section name={sect.sectionName} entries={sect.entries} />
-                </Grid.Column>
-              </Grid.Row>
-            )
-          })}
-        </Grid>
+      <div style={{background:'#e8e8ee', display:'flex', flexDirection:'column', paddingTop:40, fontSize:30, width:'100%'}}>
+        <div className='textbox' style={{height:'40%', flex:'none', paddingTop:30, paddingBottom:40, maxWidth:600}}>
+            <p style={{flex:'none', fontSize:'1em'}}> Through school assignments, Hackathons and fun personal projects I have developed skills with numerous modern technologies.</p>
+            <p style={{flex:'none', fontSize:'1em'}}> My greatest strengths are currently in front-end development with HTML, CSS, React+Redux, and application development using C++, Python and React Native </p>
+            <h2 style={{justifySelf:'end', textAlign:'center', marginTop:'auto'}}> Learn more about my qualifications below! </h2>
+        </div>
+        <div className='stackable' style={{flex:'auto', width:'100%'}}>
+          <Section name='Resume' icon='file' color='orange' message='Click here to view a PDF version of my resume' to={__PATH_PREFIX__ + '/resume.pdf'}/>
+          <Section name='Github' icon='github' color='#6e5494' message='Click here to view my Github profile' to='https://github.com/PlumSauc3'/>
+          <Section name='LinkedIn' icon='linkedin' color='#4875B4' message='Click here to view my LinkedIn' to='https://www.linkedin.com/in/derek-xu-06814177/'/>
+        </div>
       </div>
     )
   }
 }
 
 class Section extends Component {
-  render() {
-    //Displays one section of the resume
-    return (
-        <Container style={{backgroundColor:this.props.bg}}>
-          <Header as='h3'> {this.props.name} </Header>
-          <List>
-            {this.props.entries.map(item => {
-              return (
-                <ListItem title={item[0]} text={item[1]} />
-              )
-            })}
-          </List>
-        </Container>
-    )
-  }
-}
+  state = {}
 
-class ListItem extends Component {
+  handleShow = () => this.setState({ active: true })
+  handleHide = () => this.setState({ active: false })
+
   render() {
+    const { active } = this.state
+
     return (
-      <List.Item>
-      <div>
-        <List.Header as='h4'>
-          {this.props.title}
-        </List.Header>
-        <p> {this.props.text} </p>
+      <div style={{display:'flex', flex:'auto'}}>
+        <Dimmer.Dimmable
+          as='div'
+          className='verticalCenterContainer'
+          style={{backgroundColor:this.props.color, flex:'auto', margin:0}}
+          dimmed={active}
+          onMouseEnter={this.handleShow}
+          onMouseLeave={this.handleHide}
+        >
+          <Dimmer active={active} as='a' href={this.props.to}>
+            <Header as='h3' style={{flex:'none', color:'white', margin:20}}>{this.props.message}</Header>
+          </Dimmer>
+            <div className='verticalCenterContainer' style={{textAlign:'center'}}>
+              <Header as='h1' style={{margin:'auto 0 0 0', paddingBottom:'calc(14px + 4vw)', textAlign:'center', color:'white'}}>{this.props.name}</Header>
+              <Icon inverted fitted name={this.props.icon} style={{marginBottom:'auto', fontSize:'calc(30px + 8vw)'}}/>
+            </div>
+        </Dimmer.Dimmable>
       </div>
-      </List.Item>
     )
   }
 }
