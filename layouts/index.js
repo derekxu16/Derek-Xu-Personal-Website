@@ -14,12 +14,10 @@ export default class Template extends React.Component {
   }
   render() {
     return (
-        <Grid style={{height:'100%', width:'100%', margin:0}}>
-          <Grid.Row style={{height:'100%', padding:0, margin:0}}>
-            <Navbar />
-              {this.props.children()}
-          </Grid.Row>
-        </Grid>
+      <div style={{display:'flex', flexDirection:'column', minHeight:'100%', width:'100%', padding:0, margin:0}}>
+        <Navbar />
+        {this.props.children()}
+      </div>
     )
   }
 }

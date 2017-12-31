@@ -8,8 +8,8 @@ import Socialbar from '../components/Socialbar'
 export default class Index extends React.Component {
   render() {
     return (
-      <div style={{background:'linear-gradient(to bottom right, orange, blue)', paddingTop:'8vh', height:'100%', width:'100%'}}>
-        <Grid style={{marginTop:0, fontSize:'2rem'}}>
+      <div style={{background:'linear-gradient(to bottom right, orange, blue)', flex:'auto', paddingTop:'8vh', minHeight:'100%', width:'100%'}}>
+        <Grid style={{margin:0, fontSize:'2rem'}}>
           <Grid.Row columns={1} centered>
               <Header size='large' style={{color:'white',}}>
                 Hi, I'm Derek!

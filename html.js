@@ -38,11 +38,11 @@ export default class HTML extends React.Component {
           {css}
           <link href="https://fonts.googleapis.com/css?family=Dosis|Nunito|Quicksand" rel="stylesheet" /> 
         </head>
-        <body style={{minHeight:'100%', height:'100%'}}>
+        <body style={{minHeight:'100%', width:'100%'}}>
           <div
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
-            style={{display:'flex', justifyContent:'center', height:'100%'}}
+            style={{display:'flex', justifyContent:'center', minHeight:'100%'}}
           />
           {this.props.postBodyComponents}
         </body>
