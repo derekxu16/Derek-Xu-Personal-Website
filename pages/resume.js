@@ -7,11 +7,11 @@ import Helmet from "react-helmet"
 export default class Resume extends React.Component {
   render() {
     return (
-      <div style={{background:'#e8e8ee', display:'flex', flexDirection:'column', paddingTop:40, fontSize:30, width:'100%'}}>
-        <div className='textbox' style={{height:'40%', flex:'none', paddingTop:30, paddingBottom:40, maxWidth:600}}>
-            <p style={{flex:'none', fontSize:'1em'}}> Through school assignments, Hackathons and fun personal projects I have developed skills with numerous modern technologies.</p>
-            <p style={{flex:'none', fontSize:'1em'}}> My greatest strengths are currently in front-end development with HTML, CSS, React+Redux, and application development using C++, Python and React Native </p>
-            <h2 style={{justifySelf:'end', textAlign:'center', marginTop:'auto'}}> Learn more about my qualifications below! </h2>
+      <div style={{background:'linear-gradient(to right, #4267b2, #92a2dd)', display:'flex', flexDirection:'column', paddingTop:40, fontSize:'calc(22px + 0.6vw)', height:'100%', width:'100%'}}>
+        <div className='textbox' style={{flex:'auto', paddingBottom:20, maxWidth:800}}>
+            <p style={{paddingTop:'calc(2.4vh)', flex:'none', fontSize:'1em', color:'#ededed'}}> Through school assignments, Hackathons and fun personal projects I have developed skills with numerous modern technologies.</p>
+            <p style={{flex:'none', fontSize:'1em', color:'#ededed'}}> My greatest strengths are currently in front-end development with HTML/CSS/JavaScript (React+Redux), and application development using C++, Python and React Native </p>
+            <h2 style={{justifySelf:'flex-end', textAlign:'center', color:'white', marginTop:'auto'}}> Learn more about my qualifications below! </h2>
         </div>
         <div className='stackable' style={{flex:'auto', width:'100%'}}>
           <Section name='Resume' icon='file' color='orange' message='Click here to view a PDF version of my resume' to={__PATH_PREFIX__ + '/resume.pdf'}/>
@@ -46,7 +46,7 @@ class Section extends Component {
             <Header as='h3' style={{flex:'none', color:'white', margin:20}}>{this.props.message}</Header>
           </Dimmer>
             <div className='verticalCenterContainer' style={{textAlign:'center'}}>
-              <Header as='h1' style={{margin:'auto 0 0 0', paddingBottom:'calc(14px + 4vw)', textAlign:'center', color:'white'}}>{this.props.name}</Header>
+              <Header as='h1' style={{fontSize:'calc(4px + 3vw)', margin:'auto 0 0 0', paddingBottom:'calc(14px + 4vw)', textAlign:'center', color:'white'}}>{this.props.name}</Header>
               <Icon inverted fitted name={this.props.icon} style={{marginBottom:'auto', fontSize:'calc(30px + 8vw)'}}/>
             </div>
         </Dimmer.Dimmable>

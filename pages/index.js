@@ -2,7 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 import Helmet from "react-helmet"
 import { Grid, Header, Image, Container } from 'semantic-ui-react'
-import mePic from '../resources/good2.png'
+import mePic from '../resources/profile.jpg'
 import Socialbar from '../components/Socialbar'
 
 export default class Index extends React.Component {
@@ -21,7 +21,7 @@ export default class Index extends React.Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Image src={mePic} height='350' centered/>
+            <Image rounded='true' src={mePic} height='350' centered/>
           </Grid.Row>
         </Grid>
       </div>

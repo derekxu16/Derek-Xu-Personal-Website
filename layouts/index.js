@@ -15,11 +15,6 @@ export default class Template extends React.Component {
   render() {
     return (
         <Grid style={{height:'100%', width:'100%', margin:0}}>
-          {/* <Grid.Row only='mobile' centered>
-            <Grid.Column style={{padding:0}}>
-              <SidebarMobile pages={this.props.children}/>
-            </Grid.Column>
-          </Grid.Row> */}
           <Grid.Row style={{height:'100%', padding:0, margin:0}}>
             <Navbar />
               {this.props.children()}
