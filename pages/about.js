@@ -15,7 +15,7 @@ export default class About extends React.Component {
         </div>
         <div className='stackable' style={{flex:'auto', width:'100%'}}>
           <DimButton name='Music' icon='youtube' color='#cc181e' message='Click here to visit my music channel' to="https://www.youtube.com/derekxumusic"/>
-          <DimButton name='Yoyoing' icon='instagram' color='green' message='Click here to see my yoyo videos on Instagram' to='https://www.instagram.com/yoderekyo/'/>
+          <DimButton name='Yoyoing' icon='instagram' color='#8a3ab9' message='Click here to see my yoyo videos on Instagram' to='https://www.instagram.com/yoderekyo/'/>
           <DimButton name='Competitive Programming' icon='winner' color='#4875B4' message='Click here to view my DMOJ profile' to='https://dmoj.ca/user/plumsauc3/'/>
         </div>
       </div>

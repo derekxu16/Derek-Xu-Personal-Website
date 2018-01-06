@@ -23,8 +23,8 @@ export default class DimButton extends Component {
             <Dimmer active={active} as='a' href={this.props.to}>
               <Header as='h3' style={{flex:'none', color:'white', margin:20}}>{this.props.message}</Header>
             </Dimmer>
-              <div className='verticalCenterContainer' style={{textAlign:'center'}}>
-                <Header as='h1' style={{fontSize:'calc(20px + 0.6vw)', margin:'auto 0 0 0', maxWidth:'16vw', paddingBottom:'calc(14px + 4vw)', textAlign:'center', color:'white'}}>{this.props.name}</Header>
+              <div className='verticalCenterContainer' style={{width:200, textAlign:'center'}}>
+                <Header as='h1' style={{fontSize:'calc(20px + 0.6vw)', margin:'auto 0 0 0', paddingBottom:'calc(14px + 4vw)', textAlign:'center', color:'white'}}>{this.props.name}</Header>
                 <Icon inverted fitted name={this.props.icon} style={{marginBottom:'auto', fontSize:'calc(30px + 8vw)'}}/>
               </div>
           </Dimmer.Dimmable>
