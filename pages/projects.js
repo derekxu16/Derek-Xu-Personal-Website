@@ -30,6 +30,14 @@ export default class Resume extends React.Component {
           ],
         },
         {
+          sectionName: 'muBot',
+          link: "https://github.com/PlumSauc3/Derek-Xu-Personal-Website",
+          entries : ['Raspberry Pi, Python, GPIO, SciPy', "Robot that dances and flashes LEDs to the beat of ANY song.  In order to make up for the Pi's lack of processing power, the software behind it implements a parallelized fast fourier transform to improve performance during spectral flux onset detection."],
+          links : [
+            
+          ],
+        },
+        {
           color: "blue",
           sectionName: 'Piano Chord Pads',
           link: "https://github.com/PlumSauc3/Piano-Chord-Pads",
@@ -70,7 +78,7 @@ export default class Resume extends React.Component {
           links : [
             
           ],
-        }
+        },
       ]
     })
   }
