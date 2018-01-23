@@ -17,7 +17,7 @@ export default class Index extends React.Component {
           </Grid.Row>
           <Grid.Row centered columns={1}>
             <Grid.Column className='textbox' style={{color:'white',}}>
-              <p> I'm an 18 year old Software Engineering student at the University of Waterloo. I love to code and learn about coding. I enjoy making webistes, apps and games and I am also extremely fond of competitive programming! </p>
+              <p> I'm an 18 year old Software Engineering student at the University of Waterloo. I love to code and learn about coding. I enjoy making websites, apps and games and I am also extremely fond of competitive programming! </p>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
