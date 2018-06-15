@@ -14,7 +14,7 @@ export default class Template extends React.Component {
   }
   render() {
     return (
-      <div style={{display:'flex', flexDirection:'column', minHeight:'100%', width:'100%', padding:0, margin:0}}>
+      <div className='fullscreen'>
         <Navbar />
         {this.props.children()}
       </div>

@@ -2,7 +2,7 @@ import React from "react"
 import Link from "gatsby-link"
 import Helmet from "react-helmet"
 import { Container, Header, Divider, List } from 'semantic-ui-react'
-import DimButton from '../components/DimButton'
+import DimButton from '../components/DimTile'
 
 export default class About extends React.Component {
   render() {

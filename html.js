@@ -36,13 +36,14 @@ export default class HTML extends React.Component {
           />
           {this.props.headComponents}
           {css}
-          <link href="https://fonts.googleapis.com/css?family=Dosis|Nunito|Quicksand" rel="stylesheet" /> 
+          <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Dosis:200|Nunito|Quicksand|Calligraffitti" rel="stylesheet" /> 
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js" />
         </head>
-        <body style={{minHeight:'100%', width:'100%'}}>
+        <body className='fullscreen'>
           <div
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
-            style={{display:'flex', justifyContent:'center', minHeight:'100%'}}
+            style={{ display:'flex', justifyContent:'center', minHeight:'100%'}}
           />
           {this.props.postBodyComponents}
         </body>
