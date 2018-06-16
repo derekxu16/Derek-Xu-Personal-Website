@@ -37,7 +37,6 @@ export default class HTML extends React.Component {
           {this.props.headComponents}
           {css}
           <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Dosis:200|Nunito|Quicksand|Calligraffitti" rel="stylesheet" /> 
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js" />
         </head>
         <body className='fullscreen'>
           <div

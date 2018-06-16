@@ -149,7 +149,7 @@ export default function sketch (p) {
     )
 
     p.setup = function() {
-        winWidth = p.windowWidth;
+        winWidth = p.windowWidth + 2;
         winHeight = p.windowHeight;
         startTime = p.millis();
         p.createCanvas(winWidth, winHeight);

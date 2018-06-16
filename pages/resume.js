@@ -7,13 +7,27 @@ import { withPrefix } from 'gatsby-link'
 import Helmet from "react-helmet"
 
 export default class Resume extends React.Component {
+  constructor() {
+    super();
+    this.state = { headerPadding: 0 };
+  }
   componentDidMount() {
-    this.setState({headerPadding: window.innerWidth < 700 ? '80px' : '0px' + '20px 0px 20px'});
+    this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    const mobile = window.innerWidth < 700;
+    if (mobile) {
+      this.setState({headerPadding: '80px 20px 0px 20px'});
+    } else {
+      this.setState({headerPadding: '0px 20px 0px 20px'});
+    }
   }
   render() {
     return (
       <div className='vertical-center-container' style={{background:'linear-gradient(to right, #4267b2, #92a2dd)', fontSize:'calc(22px + 0.6vw)', height:'100%', width:'100%'}}>
-        <p className="tile-container-header" style={{ padding: this.props.headerPadding }}>
+        <p className="tile-container-header" style={{ padding: this.state.headerPadding }}>
           The tiles below best characterize me as a developer. Hover on them to learn more!
         </p>
         <TileContainer rows={1} columns={3}>

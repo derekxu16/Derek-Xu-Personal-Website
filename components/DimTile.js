@@ -21,9 +21,9 @@ export default class DimTile extends Component {
             onMouseLeave={this.handleHide}
           >
             <Dimmer active={active} as='a' href={this.props.to}>
-              <Header as='h3' style={{flex:'none', color:'white', margin:20}}>{this.props.message}</Header>
+              <Header as='h3' style={{color:'white', textAlign: 'left', margin:20}}>{this.props.message}</Header>
             </Dimmer>
-              <div className='vertical-center-container' style={{width:200, textAlign:'center'}}>
+              <div className='vertical-center-container' style={{ width:200 }}>
                 <Header as='h1' className='tile-header' style={{ marginBottom: 40 }} >{this.props.name}</Header>
                 <Icon inverted fitted name={this.props.icon} style={{ fontSize:80 }}/>
               </div>

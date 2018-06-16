@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class SketchWrapper extends Component {
     componentDidMount() {
-        this.canvas = new p5(this.props.sketch, this.refs.wrapper);
+        const p5 = require('p5');
+        this.canvas = new p5(this.props.sketch, this.wrapper);
     }
 
     componentWillUnmount() {
@@ -10,7 +11,10 @@ class SketchWrapper extends Component {
     }
 
     render() {
-        return <div ref="wrapper" style={{ overflow: 'hidden', height: '100%', position: 'absolute', left: -2 }} />
+        return (<div
+            ref={ref => {if(ref) this.wrapper = ref}}
+            style={{ overflow: 'hidden', height: '100%', position: 'absolute', left: -2 }}
+        />)
     }
 }
 
