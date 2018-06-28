@@ -88,3 +88,13 @@ body {
     50%{background-position:100% 51%}
     100%{background-position:0% 50%}
 }
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 750ms ease-out;
+    animation-fill-mode: forwards;
+}

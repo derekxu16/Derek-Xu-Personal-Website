@@ -1,14 +1,29 @@
-import React from 'react'
+import React from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class TileContainer extends React.Component {
     constructor() {
         super();
-        this.state = { style :{width: 0, height: 0}, columns: 1 };
+        this.state = { style :{width: 0, height: 0}, columns: 1, tick: -1 };
     }
 
     componentDidMount() {
         this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions);
+
+        this.interval = setInterval(() => {
+            if (this.state.tick < this.props.children.length) {
+                this.setState(prevState => ({
+                    tick: prevState.tick + 1,
+                }));
+            }
+        }, 150);
+
+        this.setState({ tick: 0 })
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     updateDimensions = () => {
@@ -33,12 +48,26 @@ class TileContainer extends React.Component {
             if (ind % this.state.columns == 0) {
                 rows.push([]);
             }
-            rows[rows.length - 1].push(this.props.children[ind]);
+            rows[rows.length - 1].push(
+                    <CSSTransition 
+                        in={this.state.tick == ind}
+                        appear={true}
+                        classNames="fade"
+                        mountOnEnter={true}
+                        timeout={750}
+                        >
+                        {this.props.children[ind]}
+                    </CSSTransition>
+            );
             ind ++;
         }
+
         return (
             <div>
-                {rows.map((row, i) => <div className='stackable' children={[row]} key={i} style={this.state.style} />)}
+                {rows.map((row, i) => (
+                    <div className='stackable' style={this.state.style} key={i} children={row}>
+                    </div>
+                ))}
             </div>
         );
     }

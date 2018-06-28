@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Icon, Dimmer, Header } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Icon, Dimmer, Header } from 'semantic-ui-react';
 
 export default class DimTile extends Component {
     state = {}
@@ -11,7 +11,7 @@ export default class DimTile extends Component {
       const { active } = this.state
   
       return (
-        <div style={{display:'flex', flex:'auto'}}>
+        <div style={{ display:'flex', flex:'auto' }}>
           <Dimmer.Dimmable
             as='div'
             className='vertical-center-container'
