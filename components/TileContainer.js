@@ -38,7 +38,11 @@ class TileContainer extends React.Component {
         let width, height;
         width = Math.min(800, window.innerWidth);
         height = window.innerWidth <= 480 ? 200 : Math.floor(width/columns);
-        this.setState({style: {width: width, height: height}, columns: columns});
+        this.setState({
+            style: {width: width, height: height},
+            columns: columns,
+            tick: this.state.columns != columns ? 0 : this.state.tick,
+        });
     }
     
     render() {
@@ -55,6 +59,7 @@ class TileContainer extends React.Component {
                         classNames="fade"
                         mountOnEnter={true}
                         timeout={750}
+                        key={ind}
                         >
                         {this.props.children[ind]}
                     </CSSTransition>
