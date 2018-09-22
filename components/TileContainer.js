@@ -1,10 +1,10 @@
 import React from 'react';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 class TileContainer extends React.Component {
     constructor() {
         super();
-        this.state = { style :{width: 0, height: 0}, columns: 1, tick: -1 };
+        this.state = { style: { width: 0, height: 0 }, columns: 1, tick: -1 };
     }
 
     componentDidMount() {
@@ -41,7 +41,7 @@ class TileContainer extends React.Component {
         this.setState({
             style: {width: width, height: height},
             columns: columns,
-            tick: this.state.columns != columns ? 0 : this.state.tick,
+            tick: this.state.columns !== columns ? 0 : this.state.tick,
         });
     }
     
@@ -49,15 +49,15 @@ class TileContainer extends React.Component {
         let ind = 0;
         let rows = [];
         while (ind < this.props.children.length) {
-            if (ind % this.state.columns == 0) {
+            if (ind % this.state.columns === 0) {
                 rows.push([]);
             }
             rows[rows.length - 1].push(
                     <CSSTransition 
-                        in={this.state.tick == ind}
-                        appear={true}
+                        in={this.state.tick === ind}
+                        appear
                         classNames="fade"
-                        mountOnEnter={true}
+                        mountOnEnter
                         timeout={750}
                         key={ind}
                         >

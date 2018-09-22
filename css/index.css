@@ -1,5 +1,27 @@
+/* Text */
+p {
+    font-family: 'Muli', 'Open Sans', Helvetica, Arial;
+    color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', 'Open Sans', Helvetica, Arial;
+    color: white;
+}
+
+/* Page Layout */
+#___gatsby > * {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow-y: scroll;
+}
+
 .fullscreen {
     min-height: 100%;
+    height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -13,26 +35,15 @@
     margin-right: auto;
 }
 
-.card {
-    padding: 2 2 2 2;
-    background-color: white;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-}
-
 .vertical-center-container .tile-header {
     font-size: 24px;
+    font-weight: 400;
     text-align: center;
-    color: white;
 }
 
 .tile-container-header {
     max-width: 800px;
     font-size: 20px;
-    color: white;
-}
-
-body {
-    overflow-y: scroll;
 }
 
 @media (max-width: 480px) {
@@ -63,7 +74,7 @@ body {
     font-size:0.6em;
     max-width:650px;
     padding-left:30px !important;
-    padding-right:30px !important;
+    padding-right:30px !important
 }
 
 .background {
@@ -73,28 +84,22 @@ body {
     width: 100%;
 }
 
-@-webkit-keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 51%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 51%}
-    100%{background-position:0% 50%}
-}
-@keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 51%}
-    100%{background-position:0% 50%}
-}
-
+/* Transitions */
 .fade-enter {
     opacity: 0;
 }
-
 .fade-enter-active {
     opacity: 1;
     transition: opacity 750ms ease-out;
+    animation-fill-mode: fowards;
+}
+
+.fadeHeader-enter {
+    opacity: 0;
+}
+
+.fadeHeader-enter-active {
+    opacity: 1;
+    transition: opacity 750ms 970ms ease-out;
     animation-fill-mode: forwards;
 }

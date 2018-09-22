@@ -1,10 +1,8 @@
 import React, { Component } from "react"
-import Link from "gatsby-link"
-import Helmet from "react-helmet"
-import { Container, Header, Divider, List, Grid, Item, Icon } from 'semantic-ui-react'
+import { Item } from 'semantic-ui-react'
 
 export default class Resume extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       sections : [
         {
@@ -84,7 +82,7 @@ export default class Resume extends React.Component {
   }
   render() {
     return (
-      <div style={{background:'linear-gradient(to bottom right, #4267b2, #92a2dd)', width:'100%', minHeight:'100%', padding:'60px 14px 20px 14px'}}>
+      <div style={{ width:'100%', minHeight:'100%', padding:'60px 14px 20px 14px'}}>
         <Item.Group divided style={{maxWidth:700, margin:'0px auto 0px auto'}}>
           {this.state.sections.map((sect, i) => {
             return <Project title={sect.sectionName} text={sect.entries[1]} tech={sect.entries[0]} link={sect.link} key={i} links={sect.links}/>

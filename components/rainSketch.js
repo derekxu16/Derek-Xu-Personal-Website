@@ -29,9 +29,10 @@ export default function sketch (p) {
     
     class Umbrella {
         constructor() {
-            const xOrigin = winWidth/2, yOrigin = winHeight/4;
-            this.width = winWidth < 480 ? 4*winWidth/5 : p.min(500, 2*winWidth/3);
-            this.height = this.width/6;
+            this.width = winWidth/18;
+            this.height = this.width/4;
+            const xOrigin = winWidth - this.width - 20;
+            const yOrigin = this.height + 80;
             this.bounds = {};
             this.points = [
                 p.createVector(xOrigin, yOrigin),
@@ -71,7 +72,7 @@ export default function sketch (p) {
                 
                 const roundx = p.round(x);
                 if (!this.bounds.hasOwnProperty(roundx)) {
-                    this.bounds[roundx] = new Array();
+                    this.bounds[roundx] = [];
                 }
                 this.bounds[roundx].push(y);
             }
@@ -140,9 +141,8 @@ export default function sketch (p) {
         }
     }
 
-    var rain = new Set;
+    var rain = new Set();
     let umbrella;
-    var startTime;
     var winWidth, winHeight;
     const messages = ['Modern interactive web development', 'Data Science', 'Music', 'Rainy days', 'Yoyo'].map(
         m => ({text: m, countdown: 100})
@@ -151,24 +151,23 @@ export default function sketch (p) {
     p.setup = function() {
         winWidth = p.windowWidth + 3;
         winHeight = p.windowHeight;
-        startTime = p.millis();
         p.createCanvas(winWidth, winHeight);
+        p.pixelDensity(1);
         p.background(0);
         p.frameRate(60);
         
         umbrella = new Umbrella();
-        umbrella.calcBoundaries();
+        // umbrella.calcBoundaries();
     }
     
     p.draw = function() {
         fade();	
-        
-        writeText();
-        umbrella.draw();
+
+        // umbrella.draw();
     
-        rain.add(new Rain);
-        if (p.frameCount % 20 == 0) {
-            rain.add(new Rain)
+        rain.add(new Rain());
+        if (p.frameCount % 20 === 0) {
+            rain.add(new Rain())
         }
         
         for (let r of rain) {
@@ -176,10 +175,11 @@ export default function sketch (p) {
             r.draw();
             if (r.position.y > winHeight) {
                 rain.delete(r);
-            } else if (r.color >= 40 && umbrella.checkCollision(p.round(r.position.x), r.position.y)) {
-                drawSplash(r.position);
-                rain.delete(r);
             }
+            // } else if (r.color >= 40 && umbrella.checkCollision(p.round(r.position.x), r.position.y)) {
+            //     drawSplash(r.position);
+            //     rain.delete(r);
+            // }
         }
     }
 }

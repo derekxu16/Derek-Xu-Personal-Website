@@ -1,52 +1,43 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Container } from 'semantic-ui-react'
-
-const BUILD_TIME = new Date().getTime()
 
 export default class HTML extends React.Component {
-  static propTypes = {
-    body: PropTypes.string,
-  }
-
   render() {
-    let css
-    if (process.env.NODE_ENV === "production") {
-      css = (
-        <style
-          dangerouslySetInnerHTML={{
-            __html: require("!raw!../public/styles.css"),
-          }}
-        />
-      )
-    }
-
     return (
-      <html lang="en">
+      <html {...this.props.htmlAttributes}>
         <head>
-          <title>Derek Xu</title>
           <meta charSet="utf-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="author" content="Derek Xu" />
-          <meta name="description" content="Derek Xu - Software Engineering student at uWaterloo" />
-          <meta name="keywords" content="Derek, Xu, Software, Engineer, Waterloo, Music, Developer" />
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <meta name="author" content="Derek Xu" />
+          <meta name="description" content="Derek Xu - Software Engineering student at uWaterloo" />
+          <meta name="keywords" content="Derek, Xu, Software, Engineer, University, Waterloo, Music, Developer, React, Frontend, Full-Stack" />
+          <link href="https://fonts.googleapis.com/css?family=Muli:200|Dosis:300|Lato|Arimo" rel="stylesheet" />
           {this.props.headComponents}
-          {css}
-          <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Dosis:200|Nunito|Quicksand|Calligraffitti" rel="stylesheet" /> 
         </head>
-        <body className='fullscreen'>
+        <body {...this.props.bodyAttributes}>
+          {this.props.preBodyComponents}
           <div
+            key={`body`}
             id="___gatsby"
+            className="fullscreen"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
-            style={{ display:'flex', justifyContent:'center', minHeight:'100%'}}
           />
           {this.props.postBodyComponents}
         </body>
       </html>
     )
   }
+}
+
+HTML.propTypes = {
+  htmlAttributes: PropTypes.object,
+  headComponents: PropTypes.array,
+  bodyAttributes: PropTypes.object,
+  preBodyComponents: PropTypes.array,
+  body: PropTypes.string,
+  postBodyComponents: PropTypes.array,
 }
