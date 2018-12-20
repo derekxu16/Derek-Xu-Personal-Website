@@ -47,10 +47,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .stackable {
-        flex-direction: column;
-    }
-
     .tallMobile {
         height:calc(100vh - 40px);
         flex: none;

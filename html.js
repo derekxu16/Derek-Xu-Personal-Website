@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class HTML extends React.Component {
   render() {
@@ -15,7 +15,7 @@ export default class HTML extends React.Component {
           <meta name="author" content="Derek Xu" />
           <meta name="description" content="Derek Xu - Software Engineering student at uWaterloo" />
           <meta name="keywords" content="Derek, Xu, Software, Engineer, University, Waterloo, Music, Developer, React, Frontend, Full-Stack" />
-          <link href="https://fonts.googleapis.com/css?family=Muli:200|Dosis:300|Lato|Arimo" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Muli:300|Dosis:300|Lato|Arimo" rel="stylesheet" />
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
