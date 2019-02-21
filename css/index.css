@@ -10,13 +10,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Page Layout */
-#___gatsby > * {
-    height: 100%;
-    width: 100%;
+html, body {
+    background-color: rgb(60, 140, 190);
 }
 
 body {
     overflow-y: scroll;
+}
+
+div[role="group"][tabindex] {
+    height: 100%;
+    width: 100%;
 }
 
 .fullscreen {
@@ -78,6 +82,48 @@ body {
     padding-top: 8vh;
     min-height: 100%;
     width: 100%;
+}
+
+.frontpage-nav {
+    position: absolute;
+    z-index: 2;
+    width: 70px;
+    transition: width 750ms ease-in, left 1s ease-in, right 1s ease-in, background-color 1s ease-in-out;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 180, 245, 0.3);
+    cursor: pointer;
+}
+
+.left-open {
+    left: 100%;
+    width: 200%;
+    background-color: rgb(60, 140, 190);
+}
+
+.right-open {
+    right: 100%;
+    width: 200%;
+    background-color: rgb(60, 140, 190);
+}
+
+.floating-action {
+    height: 60px;
+    width: 60px;
+    background-color: rgb(235, 235, 235);
+    box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 /* Transitions */

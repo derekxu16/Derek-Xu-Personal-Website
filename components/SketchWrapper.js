@@ -14,7 +14,7 @@ class SketchWrapper extends Component {
 		return (
 			<div
 				ref={ref => {if(ref) this.wrapper = ref}}
-				style={{ overflow: 'hidden', height: '100%', position: 'absolute', left: -2, zIndex: -1 }}
+				style={{ overflow: 'hidden', height: '100%', position: 'absolute', left: -2 }}
 			/>
 		)
 	}

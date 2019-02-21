@@ -66,7 +66,7 @@ class TileContainer extends React.Component {
 		}
 
 		return (
-			<div>
+			<div style={{ marginTop: 'auto', marginBottom: 'auto' }}>
 				{rows.map((row, i) => (
 					<div className="stackable" style={this.state.style} key={i} children={row}>
 					</div>
