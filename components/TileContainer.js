@@ -9,17 +9,7 @@ class TileContainer extends React.Component {
 
 	componentDidMount() {
 		this.updateDimensions();
-		window.addEventListener("resize", this.updateDimensions);
-
-		this.interval = setInterval(() => {
-			if (this.state.tick < this.props.children.length) {
-				this.setState(prevState => ({
-					tick: prevState.tick + 1,
-				}));
-			}
-		}, 150);
-
-		this.setState({ tick: 0 })
+		window.addEventListener("resize", this.updateDimensions);	
 	}
 
 	componentWillUnmount() {
@@ -38,10 +28,30 @@ class TileContainer extends React.Component {
 		let width, height;
 		width = Math.min(800, window.innerWidth);
 		height = Math.floor(width/columns);
+
+		if (this.state.tick === -1) {
+			this.interval = setInterval(() => {
+				if (this.state.tick < this.props.children.length) {
+					if (this.state.tick == 0) {
+						window.scroll({ top: 0 });
+						setTimeout(() => window.scroll({top: document.body.scrollHeight, behavior: 'smooth' }), 270);
+						setTimeout(() => window.scroll({top: 0, behavior: 'smooth' }), 1000);
+					}
+					this.setState(prevState => ({
+						tick: prevState.tick + 1,
+					}));
+				}
+			}, 150);
+
+			setTimeout(() => {
+				clearInterval(this.interval);
+			}, 2000);
+		}
+
 		this.setState({
 			style: { width, height },
 			columns: columns,
-			tick: this.state.columns !== columns ? 0 : this.state.tick,
+			tick: this.state.columns !== columns ? -1 : this.state.tick,
 		});
 	}
 	
