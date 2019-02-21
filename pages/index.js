@@ -32,7 +32,7 @@ export default class Index extends React.Component {
             <div
               className={leftClass}
               onClick={this.navigateLeft}
-              style={{ left: 0, borderRadius: '0 50px 50px 0 / 0 50% 50% 0', marginRight: 14 }}
+              style={{ left: 0, borderRadius: '0 50px 50px 0 / 0 50% 50% 0', marginRight: 14,  }}
             >
               {!this.state.leftOpen && <Icon inverted name="chevron left" />}
               {!this.state.leftOpen && <p style={{ fontSize: 12, marginTop: 6 }}>Work</p>}

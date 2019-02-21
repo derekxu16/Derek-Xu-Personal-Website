@@ -50,13 +50,6 @@ div[role="group"][tabindex] {
     font-size: 20px;
 }
 
-@media (max-width: 480px) {
-    .tallMobile {
-        height:calc(100vh - 40px);
-        flex: none;
-    }
-}
-
 .vertical-center-container {
     display: flex;
     flex: auto;
@@ -97,6 +90,13 @@ div[role="group"][tabindex] {
     background-color: rgba(80, 180, 245, 0.3);
     cursor: pointer;
 }
+
+@media (max-width: 600px) {
+    .frontpage-nav {
+        width: 48px;
+    }
+}
+
 
 .left-open {
     left: 100%;

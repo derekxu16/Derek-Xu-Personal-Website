@@ -12,19 +12,18 @@ export default class DimTile extends Component {
 
   render() {
     const { active } = this.state;
-    const mobile = window.innerWidth < 480;
 
     return (
       <Dimmer.Dimmable
         as="div"
         className="vertical-center-container"
-        style={{ backgroundColor: this.props.color, flex: 'auto', margin: 5, boxShadow: '0 2px 8px 3px rgba(0, 0, 0, 0.3)' }}
+        style={{ backgroundColor: this.props.color, flex: '1 0 auto', margin: 5, boxShadow: '0 2px 8px 3px rgba(0, 0, 0, 0.3)' }}
         dimmed={active}
         onMouseEnter={this.handleShow}
         onMouseLeave={this.handleHide}
       >
         <Dimmer active={active} as="a" href={this.props.to}>
-          <p style={{ fontSize: mobile ? 12 : 16, textAlign: 'left', margin: 16 }}>
+          <p style={{ fontSize: 16, textAlign: 'left', margin: 16 }}>
             {this.props.message}
           </p>
         </Dimmer>

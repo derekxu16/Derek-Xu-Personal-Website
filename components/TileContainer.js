@@ -28,10 +28,12 @@ class TileContainer extends React.Component {
 
 	updateDimensions = () => {
 		let columns;
-		if (window.innerWidth <= 680) {
+		if (window.innerWidth >= 680) {
+			columns = 3;
+		} else if (window.innerWidth >= 400) {
 			columns = 2;
 		} else {
-			columns = 3;
+			columns = 1;
 		}
 		let width, height;
 		width = Math.min(800, window.innerWidth);
