@@ -18,7 +18,7 @@ body {
     overflow-y: scroll;
 }
 
-div[role="group"][tabindex] {
+#gatsby-focus-wrapper {
     height: 100%;
     width: 100%;
 }

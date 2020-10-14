@@ -9,7 +9,7 @@ class TileContainer extends React.Component {
 
 	componentDidMount() {
 		this.updateDimensions();
-		window.addEventListener("resize", this.updateDimensions);	
+		window.addEventListener("resize", this.updateDimensions);
 	}
 
 	componentWillUnmount() {
@@ -27,15 +27,15 @@ class TileContainer extends React.Component {
 		}
 		let width, height;
 		width = Math.min(800, window.innerWidth);
-		height = Math.floor(width/columns);
+		height = Math.floor(width / columns);
 
 		if (this.state.tick === -1) {
 			this.interval = setInterval(() => {
 				if (this.state.tick < this.props.children.length) {
-					if (this.state.tick == 0) {
+					if (this.state.tick === 0) {
 						window.scroll({ top: 0 });
-						setTimeout(() => window.scroll({top: document.body.scrollHeight, behavior: 'smooth' }), 270);
-						setTimeout(() => window.scroll({top: 0, behavior: 'smooth' }), 1000);
+						setTimeout(() => window.scroll({ top: document.body.scrollHeight, behavior: 'smooth' }), 270);
+						setTimeout(() => window.scroll({ top: 0, behavior: 'smooth' }), 1000);
 					}
 					this.setState(prevState => ({
 						tick: prevState.tick + 1,
@@ -54,7 +54,7 @@ class TileContainer extends React.Component {
 			tick: this.state.columns !== columns ? -1 : this.state.tick,
 		});
 	}
-	
+
 	render() {
 		let ind = 0;
 		let rows = [];
@@ -63,18 +63,18 @@ class TileContainer extends React.Component {
 				rows.push([]);
 			}
 			rows[rows.length - 1].push(
-					<CSSTransition 
-						in={this.state.tick === ind}
-						appear
-						classNames="fade"
-						mountOnEnter
-						timeout={750}
-						key={ind}
-						>
-						{this.props.children[ind]}
-					</CSSTransition>
+				<CSSTransition
+					in={this.state.tick === ind}
+					appear
+					classNames="fade"
+					mountOnEnter
+					timeout={750}
+					key={ind}
+				>
+					{this.props.children[ind]}
+				</CSSTransition>
 			);
-			ind ++;
+			ind++;
 		}
 
 		return (

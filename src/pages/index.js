@@ -8,7 +8,7 @@ import rainSketch from '../components/RainSketch'
 export default class Index extends React.Component {
   constructor() {
     super();
-    this.state = {leftOpen: false, rightOpen: false};
+    this.state = { leftOpen: false, rightOpen: false };
   }
 
   navigateLeft = () => {
@@ -28,11 +28,11 @@ export default class Index extends React.Component {
       <div className="fullscreen">
         <SketchWrapper sketch={rainSketch} />
         <div className="fullscreen" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          {!this.state.rightOpen && 
+          {!this.state.rightOpen &&
             <div
               className={leftClass}
               onClick={this.navigateLeft}
-              style={{ left: 0, borderRadius: '0 50px 50px 0 / 0 50% 50% 0', marginRight: 14,  }}
+              style={{ left: 0, borderRadius: '0 50px 50px 0 / 0 50% 50% 0', marginRight: 14, }}
             >
               {!this.state.leftOpen && <Icon inverted name="chevron left" />}
               {!this.state.leftOpen && <p style={{ fontSize: 12, marginTop: 6 }}>Work</p>}
@@ -42,12 +42,11 @@ export default class Index extends React.Component {
             <Header as='h1' style={{ color: 'white', fontSize: 70, fontWeight: 200 }}>
               Hi, I'm Derek!
             </Header>
-            <p style={{ maxWidth: 406, fontSize: 18 }}>
-              I study software engineering at uWaterloo
-              and I'm currently working as a frontend intern for Google.
+            <p style={{ maxWidth: 406, fontSize: 17 }}>
+              I study software engineering at uWaterloo and I recently finished a frontend internship at Facebook.
             </p>
           </div>
-          {!this.state.leftOpen && 
+          {!this.state.leftOpen &&
             <div
               className={rightClass}
               onClick={this.navigateRight}

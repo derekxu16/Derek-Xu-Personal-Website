@@ -57,7 +57,7 @@ export default function sketch (p) {
     }
     
     p.draw = () => {
-        p.background(0, 0, 0, 40);
+        p.background(0, 0, 0, 100);
 
         if (p.frameCount % 2 === 0) {
             rain.add(new Rain());
